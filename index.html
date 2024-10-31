@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waste to Best - Transform Your Waste</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        #results {
+            margin-top: 20px;
+        }
+        .container-item {
+            margin-bottom: 20px;
+        }
+        .card-image img {
+            height: 200px; /* Fixed height for images */
+            object-fit: cover; /* Ensure images cover the container */
+        }
+    </style>
+</head>
+<body>
+    <nav class="teal">
+        <div class="nav-wrapper container">
+            <a href="#" class="brand-logo">Waste to Best</a>
+            <ul class="right">
+                <li><a href="ideas.html"><i class="material-icons left">lightbulb</i>Ideas</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container" style="margin-top: 50px;">
+        <form id="searchForm" class="input-field col s12">
+            <div class="input-field">
+                <input type="text" id="search" placeholder="Search contents..." required>
+                <label for="search">Search</label>
+            </div>
+        </form>
+
+        <div id="results" class="row">
+            <!-- Container Items -->
+            <div class="col s12 m6 l4 container-item" data-description="Recycling plastic bottles can help reduce waste.">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://i.postimg.cc/65MHScYg/image1.png" alt="photo frame">
+                        <span class="card-title">Cardboard photo frame</span>
+                    </div>
+                    <div class="card-content">
+                        <p>Cardboard Photo Frame. Make your own photo frames and save yourself from huge expenses of fancy frames. These frames are effortless to make and require ...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m6 l4 container-item" data-description="Composting organic waste returns nutrients to the soil.">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://i.postimg.cc/7YtVX6Ly/image2.png" alt="Bookmarks">
+                        <span class="card-title">Bookmarks</span>
+                    </div>
+                    <div class="card-content">
+                        <p>Encourage them to create beautiful bookmarks from waste at home such as old magazines, papers, envelopes, cartons, etc. Cut the card into any shape, such as ...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m6 l4 container-item" data-description="Upcycling old furniture can give it a new life.">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://i.postimg.cc/0QGnC0zt/image3.jpg" alt=" candle holder">
+                        <span class="card-title">Candle holder using glass jar</span>
+                    </div>
+                    <div class="card-content">
+                        <p>Candle Holder Using Glass Jar. Don't waste even a penny on expensive candle holders. Follow this DIY tutorial to have your own pretty candle holders made ...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m6 l4 container-item" data-description="Using reusable bags can help reduce plastic waste.">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://i.postimg.cc/52Gs90cm/image4.jpg" alt="cd coasters">
+                        <span class="card-title"> CD coasters</span>
+                    </div>
+                    <div class="card-content">
+                        <p> CD Coasters Idea. Encourage your kids not to leave rinds from cold glasses on the furniture by encouraging them to make their own fun coasters. (Tip ...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m6 l4 container-item" data-description="Proper e-waste disposal helps protect the environment.">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://i.postimg.cc/tJ2zKRtW/image5.png" alt="uisng old jeans">
+                        <span class="card-title"> Organiser using your old jeans</span>
+                    </div>
+                    <div class="card-content">
+                        <p>Organiser using old jeans. Put your old denim pants to use and make a hanging organiser. You can store knickknacks in the denim pockets. Make loops at the ...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m6 l4 container-item" data-description="Reducing food waste is crucial for sustainability.">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://i.postimg.cc/B6sQjHR5/image6.jpg" alt="tin can">
+                        <span class="card-title">Tin Can lanterns</span>
+                    </div>
+                    <div class="card-content">
+                        <p>Tin Can Lanterns Idea. Turn that old bean or soda can into a beautiful lantern for the festive season. Your little one will need your help with this one. Out ...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m6 l4 container-item" data-description="Using solar panels can reduce energy consumption.">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://i.postimg.cc/q7yxkxxk/image7.png" alt="plastic bottles">
+                        <span class="card-title">Plastic bottles</span>
+                    </div>
+                    <div class="card-content">
+                        <p>Plastic Bottle Eco-Bricks: Fill plastic bottles tightly with non-biodegradable waste to create eco-bricks that can be used for various construction projects.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m6 l4 container-item" data-description="Planting trees contributes to a healthier planet.">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://i.postimg.cc/gjYDtLRG/image8.jpg" alt="pen stand">
+                        <span class="card-title">Pen stand</span>
+                    </div>
+                    <div class="card-content">
+                        <p>make a pen stand using wastage like papers.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m6 l4 container-item" data-description="Using energy-efficient appliances can save money.">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://i.postimg.cc/HkftDh5Z/image9.jpg" alt="piggy bank">
+                        <span class="card-title">Eco-Friendly Piggy Bank with Waste Paper </span>
+                    </div>
+                    <div class="card-content">
+                        <p>Teach your kids the value of saving and taking care of the environment with an eco-friendly piggy bank. They'll learn responsibility and eco-consciousness and also learn to save money.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m6 l4 container-item" data-description="Participating in clean-up drives helps your community.">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://i.postimg.cc/sDgmpSsc/image10.jpg" alt="mirror frame">
+                        <span class="card-title"> DIY Mirror Frame with Waste Wooden Sticks and Shells </span>
+                    </div>
+                    <div class="card-content">
+                        <p>Crafting a mirror frame with waste wooden sticks and shells isn't just about aesthetics; it's a lesson in precision and creativity. Let little ones explore this activity to enhance their hand-eye coordination.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('search').addEventListener('input', function() {
+            const query = this.value.toLowerCase();
+            const items = document.querySelectorAll('.container-item');
+
+            items.forEach(item => {
+                const description = item.dataset.description.toLowerCase();
+                const title = item.querySelector('.card-title').innerText.toLowerCase();
+                
+                if (title.includes(query) || description.includes(query)) {
+                    item.style.display = ''; // Show item
+                } else {
+                    item.style.display = 'none'; // Hide item
+                }
+            });
+        });
+    </script>
+</body>
+</html>

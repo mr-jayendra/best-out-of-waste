@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waste to Best - Upcycling Ideas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-teal-50 to-teal-100 min-h-screen flex flex-col">
+    <div class="container mx-auto px-4 py-8">
+        <header class="text-center mb-10">
+            <h1 class="text-4xl font-bold text-teal-700 mb-4 flex items-center justify-center">
+                <i class="fas fa-recycle mr-3 text-green-500"></i>
+                Waste to Best
+            </h1>
+            <p class="text-xl text-teal-600 max-w-2xl mx-auto">
+                Transform Your Waste into Something Beautiful
+            </p>
+        </header>
+
+        <div id="selectorContainer" class="bg-white shadow-lg rounded-lg p-8 max-w-xl mx-auto">
+            <h2 class="text-2xl font-semibold text-teal-700 mb-6 text-center">
+                What type of waste do you have?
+            </h2>
+
+            <div class="mb-6">
+                <label class="block text-teal-600 mb-2">Select Material</label>
+                <select id="materialSelect" class="w-full px-4 py-2 border border-teal-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500">
+                    <option value="">Choose a Material</option>
+                    <option value="plastic">Plastic</option>
+                    <option value="metal">Metal</option>
+                    <option value="paper">Paper</option>
+                    <option value="glass">Glass</option>
+                    <option value="textile">Textile</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="wood">Wood</option>
+                </select>
+            </div>
+
+            <div id="itemSelectWrapper" class="hidden mb-6">
+                <label class="block text-teal-600 mb-2">Select Item</label>
+                <select id="itemSelect" class="w-full px-4 py-2 border border-teal-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500">
+                    <option value="">Choose an Item</option>
+                </select>
+            </div>
+
+            <div class="text-center">
+                <button onclick="showUpcyclingIdeas()" class="bg-teal-500 text-white px-6 py-3 rounded-md hover:bg-teal-600 transition duration-300 flex items-center justify-center mx-auto">
+                    <i class="fas fa-magic mr-2"></i>
+                    Show Upcycling Ideas
+                </button>
+            </div>
+        </div>
+
+        <div id="suggestions" class="hidden mt-10">
+            <div class="bg-white shadow-lg rounded-lg p-8 max-w-4xl mx-auto">
+                <h2 class="text-2xl font-semibold text-teal-700 mb-6 text-center">
+                    Creative Upcycling Ideas
+                </h2>
+                <div id="suggestionsContent" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Suggestions will be dynamically populated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const materialToItems = {
+            plastic: ['Bottle', 'Container', 'Bag', 'Packaging'],
+            metal: ['Can', 'Tin', 'Wire', 'Scrap Metal'],
+            paper: ['Newspaper', 'Cardboard', 'Magazine', 'Notebook'],
+            glass: ['Jar', 'Bottle', 'Broken Glass', 'Window Glass'],
+            textile: ['Old Clothes', 'Curtain', 'Towel', 'Sock'],
+            electronics: ['Phone', 'Computer Part', 'Cable', 'Charger'],
+            wood: ['Pallet', 'Furniture Scrap', 'Broken Chair', 'Wood Piece']
+        };
+
+        const upcyclingIdeas = {
+            plastic: {
+                bottle: [
+                    'Create a vertical garden planter',
+                    'Make a pencil holder',
+                    'Craft a self-watering seed starter',
+                    'Design a bird feeder'
+                ],
+                container: [
+                    'Build storage organizers',
+                    'Create modular shelving units',
+                    'Make hanging plant holders',
+                    'Design children\'s toy storage'
+                ],
+                bag: [
+                    'Turn into storage bins',
+                    'Craft reusable shopping bags',
+                    'Make fabric from plastic weaving',
+                    'Create waterproof ponchos'
+                ],
+                packaging: [
+                    'Make mini greenhouses',
+                    'Create colorful art supplies holders',
+                    'Turn into pet food storage',
+                    'Craft recycling organizers'
+                ]
+            },
+            metal: {
+                can: [
+                    'Create wind chimes',
+                    'Make candle holders',
+                    'Design desk organizers',
+                    'Craft outdoor garden lanterns'
+                ],
+                wire: [
+                    'Sculpt jewelry',
+                    'Make plant hangers',
+                    'Create wall art',
+                    'Design photo holders'
+                ],
+                tin: [
+                    'Turn into candle holders',
+                    'Create utensil holders',
+                    'Make small planters',
+                    'Craft wind chimes'
+                ],
+                'scrap metal': [
+                    'Build unique sculptures',
+                    'Make garden art',
+                    'Create decorative bowls',
+                    'Design custom furniture legs'
+                ]
+            },
+            paper: {
+                newspaper: [
+                    'Create paper mache art',
+                    'Make biodegradable seed pots',
+                    'Design woven baskets',
+                    'Craft origami decorations'
+                ],
+                cardboard: [
+                    'Build cat scratching posts',
+                    'Create storage boxes',
+                    'Design children\'s playhouse',
+                    'Make wall shelves'
+                ],
+                magazine: [
+                    'Craft rolled paper art',
+                    'Create wall hangings',
+                    'Make paper beads for jewelry',
+                    'Design greeting cards'
+                ],
+                notebook: [
+                    'Reuse paper for notes',
+                    'Create scrapbook pages',
+                    'Design custom journals',
+                    'Make DIY planners'
+                ]
+            },
+            glass: {
+                jar: [
+                    'Create terrarium',
+                    'Make candle holders',
+                    'Design bathroom organizers',
+                    'Create hanging light fixtures'
+                ],
+                bottle: [
+                    'Craft wind chimes',
+                    'Create garden border edging',
+                    'Design unique drinking glasses',
+                    'Make mosaic art'
+                ],
+                'broken glass': [
+                    'Make mosaic decorations',
+                    'Create stepping stones',
+                    'Design framed artwork',
+                    'Craft garden sculptures'
+                ],
+                'window glass': [
+                    'Build a cold frame for gardening',
+                    'Create photo frames',
+                    'Make mini greenhouses',
+                    'Design stained glass art'
+                ]
+            },
+            textile: {
+                'old clothes': [
+                    'Create quilts',
+                    'Make shopping bags',
+                    'Design pet beds',
+                    'Craft decorative pillows'
+                ],
+                towel: [
+                    'Make bath mats',
+                    'Create cleaning rags',
+                    'Design pet toys',
+                    'Make kitchen cloths'
+                ],
+                curtain: [
+                    'Transform into room dividers',
+                    'Create cushion covers',
+                    'Make picnic blankets',
+                    'Craft outdoor shade'
+                ],
+                sock: [
+                    'Make puppets for kids',
+                    'Create draft stoppers',
+                    'Design cleaning mitts',
+                    'Craft small pet clothing'
+                ]
+            },
+            electronics: {
+                'phone': [
+                    'Turn into a clock',
+                    'Create a digital picture frame',
+                    'Make a Wi-Fi hotspot device',
+                    'Design a media player'
+                ],
+                'computer part': [
+                    'Create digital art frame',
+                    'Design unique bookends',
+                    'Make decorative wall clock',
+                    'Craft industrial-style lamp'
+                ],
+                'cable': [
+                    'Make jewelry',
+                    'Create cord organizers',
+                    'Design wall art',
+                    'Craft plant hangers'
+                ],
+                'charger': [
+                    'Repurpose for DIY chargers',
+                    'Create USB-powered night light',
+                    'Make a device holder',
+                    'Craft cable organizers'
+                ]
+            },
+            wood: {
+                pallet: [
+                    'Build outdoor furniture',
+                    'Create vertical garden',
+                    'Design wall shelving',
+                    'Make coffee table'
+                ],
+                'furniture scrap': [
+                    'Craft picture frames',
+                    'Create decorative boxes',
+                    'Design wall hooks',
+                    'Make plant stands'
+                ],
+                'broken chair': [
+                    'Repurpose as wall art',
+                    'Create unique hooks',
+                    'Make storage units',
+                    'Design wooden shelves'
+                ],
+                'wood piece': [
+                    'Create decorative carvings',
+                    'Design wall hangings',
+                    'Make candle holders',
+                    'Build photo frames'
+                ]
+            }
+        };
+
+        const materialSelect = document.getElementById('materialSelect');
+        const itemSelect = document.getElementById('itemSelect');
+        const itemSelectWrapper = document.getElementById('itemSelectWrapper');
+        const suggestions = document.getElementById('suggestions');
+        const suggestionsContent = document.getElementById('suggestionsContent');
+
+        // Populate the item select options based on the selected material
+        materialSelect.addEventListener('change', function() {
+            const selectedMaterial = this.value;
+            itemSelect.innerHTML = '<option value="">Choose an Item</option>'; // Reset item options
+            itemSelectWrapper.classList.add('hidden'); // Hide item select initially
+            
+            if (selectedMaterial) {
+                const items = materialToItems[selectedMaterial.toLowerCase()];
+                items.forEach(item => {
+                    itemSelect.innerHTML += `<option value="${item.toLowerCase()}">${item}</option>`;
+                });
+                itemSelectWrapper.classList.remove('hidden'); // Show item select
+            }
+        });
+
+        // Show upcycling ideas based on selected item
+        function showUpcyclingIdeas() {
+            const selectedMaterial = materialSelect.value;
+            const selectedItem = itemSelect.value;
+
+            suggestions.classList.remove('hidden');
+            suggestionsContent.innerHTML = ''; // Clear previous suggestions
+
+            if (selectedMaterial && selectedItem) {
+                const ideas = upcyclingIdeas[selectedMaterial.toLowerCase()][selectedItem.toLowerCase()];
+                ideas.forEach(idea => {
+                    suggestionsContent.innerHTML += `<div class="bg-teal-50 p-4 rounded-lg shadow-md">${idea}</div>`;
+                });
+            } else {
+                suggestionsContent.innerHTML = '<div class="bg-teal-50 p-4 rounded-lg shadow-md">Please select a material and an item.</div>';
+            }
+        }
+    </script>
+</body>
+</html>
+
